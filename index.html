@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitacion Jadhira y Carlos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=52">
+</head>
+<body>
+  <main id="app" class="invitation-screen" aria-label="Invitacion de Jadhira y Carlos">
+    <section class="video-section" aria-label="Video de inicio">
+      <div class="video-frame">
+        <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+          <source src="video/videoboda.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="names-section" aria-label="Nombres de los novios">
+        <img
+          class="names-artwork"
+          src="img/nombre.svg"
+          alt="Iniciales C y J con decoración floral"
+        >
+      </div>
+    </section>
+
+    <section class="wedding-message" aria-labelledby="wedding-message-title">
+      <h2 id="wedding-message-title">NOS CASAMOS</h2>
+
+      <p class="wedding-intro">
+        Entre los planes más hermosos que la vida nos regaló, estuvo el encontrarnos.
+        Y con la bendición de Dios, hemos decidido dar el paso más importante de
+        nuestras vidas, comenzando una historia que deseamos compartir con quienes amamos.
+      </p>
+
+      <p class="verse-reference">Salmos 37:4</p>
+      <blockquote>
+        “Haz de Jehová tu mayor deleite,<br>
+        y él te concederá los deseos de tu corazón”.
+      </blockquote>
+    </section>
+
+    <figure class="hands-photo">
+      <img src="img/manos.jpg" alt="Las manos de Jadhira y Carlos">
+    </figure>
+
+    <section class="parents-section" aria-label="Padres de los novios">
+      <p class="parents-intro">Con la bendición de nuestros padres:</p>
+
+      <div class="parents-group">
+        <h2>Padres del novio:</h2>
+        <p>Alejandro Huachaca Pacheco</p>
+        <p>Jannett Picharde Mendoza</p>
+      </div>
+
+      <div class="parents-group">
+        <h2>Padres de la novia:</h2>
+        <p>Henry Richard Gomez Rivera</p>
+        <p>Zaida Iris Castro Peña</p>
+      </div>
+    </section>
+
+    <figure class="countdown-photo">
+      <img src="img/contador.jpg" alt="Jadhira y Carlos">
+      <figcaption class="countdown-content">
+        <h2>EL GRAN DÍA EMPIEZA EN:</h2>
+        <div class="countdown" role="timer" aria-live="polite" aria-label="Tiempo restante para la boda">
+          <div class="countdown-unit">
+            <span id="countdown-days" class="countdown-number">00</span>
+            <span class="countdown-label">DÍAS</span>
+          </div>
+          <span class="countdown-colon" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span id="countdown-hours" class="countdown-number">00</span>
+            <span class="countdown-label">HORAS</span>
+          </div>
+          <span class="countdown-colon" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span id="countdown-minutes" class="countdown-number">00</span>
+            <span class="countdown-label">MINUTOS</span>
+          </div>
+          <span class="countdown-colon" aria-hidden="true">:</span>
+          <div class="countdown-unit">
+            <span id="countdown-seconds" class="countdown-number">00</span>
+            <span class="countdown-label">SEGUNDOS</span>
+          </div>
+        </div>
+      </figcaption>
+    </figure>
+
+    <section class="save-date" aria-label="Fecha de la boda">
+      <h2><span class="agenda-initial">A</span>genda la fecha</h2>
+      <div class="save-date-details">
+        <p>VIERNES</p>
+        <p class="save-date-day">09</p>
+        <p>OCTUBRE</p>
+      </div>
+      <img
+        class="save-date-rings"
+        src="img/logosboda/1.svg"
+        alt="Anillos de boda"
+      >
+      <div class="marriage-counsel">
+        <img
+          class="marriage-counsel-image"
+          src="img/logosboda/2.svg"
+          alt="Novios sentados"
+        >
+        <h3>Consejo Matrimonial</h3>
+        <p class="marriage-counsel-time">Hora : 2:30 pm</p>
+        <p class="marriage-counsel-address">
+          Salón del Reino de los Testigos de<br>
+          Jehová (Paradero 06 de las Flores -<br>
+          SJL)
+        </p>
+        <a
+          class="map-button"
+          href="https://www.google.com/maps/place/Sal%C3%B3n+del+Reino+paradero+6+de+las+Flores+de+Primavera/@-12.0149162,-77.0116375,17z/data=!3m1!4b1!4m6!3m5!1s0x9105cfc16479f2e5:0x47cfefa92d4917a8!8m2!3d-12.0149162!4d-77.0116375!16s%2Fg%2F11j37x8wtm?entry=ttu&amp;g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver ubicación del Consejo Matrimonial en Google Maps"
+        >Ver mapa</a>
+      </div>
+      <div class="reception">
+        <img
+          class="reception-image"
+          src="img/logosboda/3.svg"
+          alt="Arco de recepción"
+        >
+        <h3>Recepción</h3>
+        <p class="reception-time">Hora : 5:30 pm</p>
+        <p class="reception-address">
+          El Gran salón 01 - SJL<br>
+          (Av. Sta. Rosa de Lima 540)
+        </p>
+        <a
+          class="map-button"
+          href="https://www.google.com/maps/place/Av.+Sta.+Rosa+de+Lima+540,+San+Juan+de+Lurigancho+15438/@-11.9728661,-76.9919592,17z/data=!3m1!4b1!4m6!3m5!1s0x9105c56a13f6be47:0x2ccf64d782e4171a!8m2!3d-11.9728661!4d-76.9919592!16s%2Fg%2F11x6r5ntx7?entry=ttu&amp;g_ep=EgoyMDI2MDcyMi4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver ubicación de la recepción en Google Maps"
+        >Ver mapa</a>
+      </div>
+    </section>
+
+    <section class="itinerary-section" aria-label="Itinerario de la boda">
+      <img
+        class="itinerary-background"
+        src="img/itinerario.jpg"
+        alt=""
+        aria-hidden="true"
+      >
+      <h2>Itinerario</h2>
+      <ol class="itinerary-timeline">
+        <li class="timeline-event timeline-event-right">
+          <img src="img/logosboda/4.svg" alt="" aria-hidden="true">
+          <p class="timeline-time">2 : 30 PM</p>
+          <p class="timeline-label">CONSEJO<br>MATRIMONIAL</p>
+        </li>
+        <li class="timeline-event timeline-event-left">
+          <img src="img/logosboda/5.svg" alt="" aria-hidden="true">
+          <p class="timeline-time">3 : 30 PM</p>
+          <p class="timeline-label">FOTOGRAFÍAS</p>
+        </li>
+        <li class="timeline-event timeline-event-right">
+          <img src="img/logosboda/6.svg" alt="" aria-hidden="true">
+          <p class="timeline-time">5 : 30 PM</p>
+          <p class="timeline-label">RECEPCIÓN</p>
+        </li>
+        <li class="timeline-event timeline-event-left">
+          <img src="img/logosboda/7.svg" alt="" aria-hidden="true">
+          <p class="timeline-time">6 : 00 PM</p>
+          <p class="timeline-label">BAILE DE<br>NOVIOS</p>
+        </li>
+        <li class="timeline-event timeline-event-right">
+          <img src="img/logosboda/8.svg" alt="" aria-hidden="true">
+          <p class="timeline-time">7 : 00 PM</p>
+          <p class="timeline-label">CENA</p>
+        </li>
+        <li class="timeline-event timeline-event-left">
+          <img src="img/logosboda/9.svg" alt="" aria-hidden="true">
+          <p class="timeline-time">8 : 00 PM</p>
+          <p class="timeline-label">BAILE</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="dress-code-section" aria-label="Código de vestimenta">
+      <h2>Dress Code</h2>
+      <img
+        class="dress-code-attire"
+        src="img/logosboda/11.svg"
+        alt="Vestido elegante y traje formal"
+      >
+      <p class="dress-code-style">ELEGANTE</p>
+      <p class="dress-code-women">Ellas: Vestido largo o cocktail</p>
+      <p class="dress-code-men">Ellos: Traje y Corbata</p>
+      <p class="dress-code-reserved">
+        Se reserva exclusivamente el color<br>
+        blanco y vino para los novios.
+      </p>
+      <p class="dress-code-palette-title">CODIGO DE VESTIMENTA</p>
+      <img
+        class="dress-code-palette"
+        src="img/logosboda/12.svg"
+        alt="Paleta de colores del código de vestimenta"
+      >
+    </section>
+
+    <section class="rsvp-section" aria-label="Confirmación de asistencia">
+      <h2>RSVP</h2>
+      <p class="rsvp-invitation">Por favor confirmar tu asistencia hasta</p>
+      <p class="rsvp-deadline">el 20 de Agosto :</p>
+      <a
+        class="rsvp-button"
+        href="https://forms.gle/QZTKDXWoA9ppXXtM7"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Confirmar asistencia mediante el formulario"
+      >Confirmar aquí</a>
+    </section>
+
+    <section class="photo-carousel" aria-label="Galería de fotos">
+      <div class="carousel-frame">
+        <img
+          id="carousel-image"
+          class="carousel-image carousel-image-monochrome"
+          src="img/carrusel/1.jpg"
+          alt="Fotografía 1 de Jadhira y Carlos"
+        >
+        <button
+          id="carousel-previous"
+          class="carousel-arrow carousel-arrow-previous"
+          type="button"
+          aria-label="Ver fotografía anterior"
+        >‹</button>
+        <button
+          id="carousel-next"
+          class="carousel-arrow carousel-arrow-next"
+          type="button"
+          aria-label="Ver fotografía siguiente"
+        >›</button>
+      </div>
+      <div class="carousel-indicators" aria-label="Seleccionar fotografía">
+        <button class="carousel-dot carousel-dot-active" type="button" data-slide="0" aria-label="Ver fotografía 1" aria-current="true"></button>
+        <button class="carousel-dot" type="button" data-slide="1" aria-label="Ver fotografía 2"></button>
+        <button class="carousel-dot" type="button" data-slide="2" aria-label="Ver fotografía 3"></button>
+        <button class="carousel-dot" type="button" data-slide="3" aria-label="Ver fotografía 4"></button>
+        <button class="carousel-dot" type="button" data-slide="4" aria-label="Ver fotografía 5"></button>
+        <button class="carousel-dot" type="button" data-slide="5" aria-label="Ver fotografía 6"></button>
+        <button class="carousel-dot" type="button" data-slide="6" aria-label="Ver fotografía 7"></button>
+      </div>
+      <p class="invitation-closing">Los esperamos</p>
+    </section>
+  </main>
+
+  <button
+    id="music-toggle"
+    class="music-toggle music-toggle-paused"
+    type="button"
+    aria-label="Reproducir música"
+    aria-pressed="false"
+  >
+    <span aria-hidden="true">♫</span>
+  </button>
+
+  <audio id="background-music" autoplay loop preload="auto">
+    <source src="musica/musicafondo.mpeg" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js?v=9"></script>
+</body>
+</html>

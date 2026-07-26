@@ -1,0 +1,1115 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --video-width: 100%;
+  --video-height: 100%;
+  --video-x: 50%;
+  --video-y: 0%;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  font-family: Arial, sans-serif;
+  background: #f5eee8;
+}
+
+.invitation-screen {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-image: url("img/Fondo.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.invitation-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.66);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.video-section {
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+.video-frame {
+  width: 100%;
+  height: 50vh;
+  height: 50svh;
+  position: relative;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  inset: 0;
+  width: var(--video-width);
+  height: var(--video-height);
+  object-fit: cover;
+  object-position: var(--video-x) var(--video-y);
+  z-index: 0;
+}
+
+.names-section {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  flex: none;
+  overflow: hidden;
+  padding: 0;
+  z-index: 1;
+}
+
+.names-artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transform: translateY(1rem);
+}
+
+.wedding-message {
+  position: relative;
+  z-index: 1;
+  min-height: 72vh;
+  min-height: 72svh;
+  padding: 4.5rem 1.25rem 5rem;
+  color: #28231f;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+.wedding-message h2 {
+  margin: 0 0 2.6rem;
+  font-size: clamp(2.7rem, 12vw, 3.65rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.wedding-intro,
+.verse-reference,
+.wedding-message blockquote {
+  font-size: clamp(1.15rem, 4.7vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+.wedding-intro {
+  max-width: 27rem;
+  margin: 0 auto;
+}
+
+.verse-reference {
+  margin: 2.1rem 0 1.8rem;
+}
+
+.wedding-message blockquote {
+  margin: 0 auto;
+  max-width: 25rem;
+}
+
+.hands-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+}
+
+.hands-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.parents-section {
+  position: relative;
+  z-index: 1;
+  margin-top: -1px;
+  padding: 4rem 1.1rem;
+  color: #17130f;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+.parents-intro {
+  margin: 0 0 3.4rem;
+  font-size: clamp(1.15rem, 4.7vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.parents-group + .parents-group {
+  margin-top: 3.2rem;
+}
+
+.parents-group h2 {
+  margin: 0 0 2.2rem;
+  color: #090706;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-size: clamp(2.45rem, 9.3vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.parents-group p {
+  margin: 0.25rem 0;
+  color: #aa8a2e;
+  font-size: clamp(1.375rem, 5.9vw, 1.875rem);
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.parents-group:last-child p:last-child {
+  margin-bottom: 0;
+}
+
+.countdown-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: -1px 0 0;
+  line-height: 0;
+}
+
+.countdown-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.2;
+  filter: grayscale(100%) contrast(108%);
+}
+
+.countdown-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.65rem;
+  color: #211d19;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  line-height: 1;
+  text-align: center;
+}
+
+.countdown-content h2 {
+  margin: 0 0 clamp(2rem, 10vw, 3.5rem);
+  font-size: clamp(1.65rem, 7.5vw, 2.35rem);
+  font-weight: 400;
+  letter-spacing: 0.035em;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: start;
+  width: 100%;
+  max-width: 27rem;
+}
+
+.countdown-unit {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number,
+.countdown-colon {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(2.2rem, 11vw, 3.45rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+.countdown-colon {
+  padding: 0 0.1rem;
+}
+
+.countdown-label {
+  margin-top: 1.15rem;
+  font-size: clamp(0.7rem, 3vw, 0.95rem);
+  font-weight: 500;
+}
+
+.save-date {
+  --section-spacing: 6rem;
+  position: relative;
+  z-index: 1;
+  min-height: 48vh;
+  min-height: 48svh;
+  margin-top: -1px;
+  padding: var(--section-spacing) 0.8rem 0;
+  color: #17130f;
+  text-align: center;
+}
+
+.save-date h2 {
+  margin: 0 0 4.2rem;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-size: clamp(2.45rem, 9.3vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.agenda-initial {
+  display: inline-block;
+  font-family: "Allura", "Great Vibes", cursive;
+  font-size: 1.25em;
+}
+
+.save-date-details {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+.save-date-details p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 6.3rem;
+  margin: 0;
+  font-size: clamp(1.025rem, calc(5vw - 2px), 1.425rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+.save-date-details .save-date-day {
+  border-right: 2px solid #17130f;
+  border-left: 2px solid #17130f;
+  font-size: clamp(3.075rem, calc(13.5vw - 2px), 4.375rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.save-date-rings {
+  display: block;
+  width: clamp(8.0625rem, calc(33vw - 3px), 10.5625rem);
+  height: auto;
+  margin: 1rem auto 0;
+}
+
+.marriage-counsel {
+  color: #17130f;
+  text-align: center;
+}
+
+.marriage-counsel-image {
+  display: block;
+  width: clamp(8.5rem, 34vw, 11rem);
+  height: auto;
+  margin: 2rem auto 0;
+}
+
+.marriage-counsel h3 {
+  margin: 0.75rem 0 0;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-size: clamp(2.45rem, 9.3vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.marriage-counsel p {
+  margin-right: auto;
+  margin-left: auto;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 3.5vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.marriage-counsel .marriage-counsel-time {
+  margin-top: 2.7rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.marriage-counsel-address {
+  margin-top: 1.9rem;
+  margin-bottom: 0;
+}
+
+.map-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(12.5rem, 44vw, 14rem);
+  height: clamp(3.45rem, 12vw, 4rem);
+  margin: 1rem auto 0;
+  background: url("img/logosboda/13.svg") center / 100% auto no-repeat;
+  color: #17130f;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 4vw, 1.2rem);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.reception {
+  color: #17130f;
+  text-align: center;
+}
+
+.reception-image {
+  display: block;
+  width: clamp(8.5rem, 34vw, 11rem);
+  height: auto;
+  margin: var(--section-spacing) auto 0;
+}
+
+.reception h3 {
+  margin: 0.75rem 0 0;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-size: clamp(2.45rem, 9.3vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.reception p {
+  margin-right: auto;
+  margin-left: auto;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 3.5vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.reception .reception-time {
+  margin-top: 2.7rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.reception-address {
+  margin-top: 1.9rem;
+  margin-bottom: 0;
+}
+
+.itinerary-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: 6rem;
+  container-type: inline-size;
+  line-height: 0;
+}
+
+.itinerary-background {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.1;
+  filter: grayscale(100%) contrast(108%);
+}
+
+.itinerary-section h2 {
+  position: absolute;
+  top: 8cqw;
+  right: 0;
+  left: 0;
+  margin: 0;
+  color: #17130f;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-size: 9.9cqw;
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.itinerary-timeline {
+  position: absolute;
+  top: 23cqw;
+  right: 0;
+  bottom: 3.3cqw;
+  left: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.itinerary-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(23, 19, 15, 0.78);
+  transform: translateX(-50%);
+}
+
+.timeline-event {
+  position: absolute;
+  width: 50%;
+  height: 17.83cqw;
+  color: #17130f;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.timeline-event:nth-child(1) {
+  top: 0;
+}
+
+.timeline-event:nth-child(2) {
+  top: 17.83cqw;
+}
+
+.timeline-event:nth-child(3) {
+  top: 35.66cqw;
+}
+
+.timeline-event:nth-child(4) {
+  top: 53.49cqw;
+}
+
+.timeline-event:nth-child(5) {
+  top: 71.32cqw;
+}
+
+.timeline-event:nth-child(6) {
+  top: 89.15cqw;
+}
+
+.timeline-event-left {
+  left: 0;
+}
+
+.timeline-event-right {
+  left: 50%;
+}
+
+.timeline-event::after {
+  content: "";
+  position: absolute;
+  top: 12.17cqw;
+  width: 42%;
+  height: 1px;
+  background: rgba(23, 19, 15, 0.68);
+}
+
+.timeline-event-left::after {
+  right: 0;
+}
+
+.timeline-event-right::after {
+  left: 0;
+}
+
+.timeline-event img {
+  display: block;
+  width: 10.83cqw;
+  height: 10.83cqw;
+  margin: -1.5cqw auto -1.33cqw;
+  opacity: 0.78;
+  filter: grayscale(100%) contrast(115%);
+}
+
+.timeline-event-left img,
+.timeline-event-left p {
+  transform: translateX(10cqw);
+}
+
+.timeline-event-right img,
+.timeline-event-right p {
+  transform: translateX(-10cqw);
+}
+
+.timeline-event p {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgba(247, 244, 240, 0.58);
+}
+
+.timeline-time {
+  margin-top: 0;
+  margin-bottom: 1.5cqw;
+  padding: 0 1.5cqw;
+  font-size: 2.93cqw;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+
+.timeline-label {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 1.17cqw;
+  font-size: 2.4cqw;
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  line-height: 1.35;
+}
+
+.dress-code-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  margin-top: 3.625rem;
+  container-type: inline-size;
+  color: #302a25;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.dress-code-section h2,
+.dress-code-section p,
+.dress-code-section img {
+  position: absolute;
+  margin: 0;
+}
+
+.dress-code-section h2 {
+  top: 8cqw;
+  right: 0;
+  left: 0;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-size: 10.5cqw;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.dress-code-attire {
+  top: 24.5cqw;
+  left: 50%;
+  width: 39cqw;
+  height: 39cqw;
+  transform: translateX(-50%);
+}
+
+.dress-code-style,
+.dress-code-women,
+.dress-code-men,
+.dress-code-reserved,
+.dress-code-palette-title {
+  right: 0;
+  left: 0;
+  font-weight: 400;
+}
+
+.dress-code-style {
+  top: 60.5cqw;
+  font-size: 3.8cqw;
+}
+
+.dress-code-women {
+  top: 72cqw;
+  font-size: 4.2cqw;
+}
+
+.dress-code-men {
+  top: 81.7cqw;
+  font-size: 4.2cqw;
+}
+
+.dress-code-reserved {
+  top: 92.5cqw;
+  font-size: 3.55cqw;
+  line-height: 1.35;
+}
+
+.dress-code-palette-title {
+  top: 119cqw;
+  font-size: 3.85cqw;
+}
+
+.dress-code-palette {
+  top: 106cqw;
+  left: 50%;
+  width: 125cqw;
+  height: 53cqw;
+  transform: translateX(-50%);
+}
+
+.rsvp-section {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 1.412 / 1;
+  container-type: inline-size;
+  color: #302a25;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.rsvp-section h2,
+.rsvp-section p,
+.rsvp-button {
+  position: absolute;
+  margin: 0;
+}
+
+.rsvp-section h2 {
+  top: 12.5cqw;
+  right: 0;
+  left: 0;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: 9.4cqw;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.rsvp-invitation {
+  top: 34.3cqw;
+  right: 0;
+  left: 0;
+  font-size: 4.25cqw;
+  font-weight: 400;
+}
+
+.rsvp-deadline {
+  top: 44.4cqw;
+  right: 0;
+  left: 0;
+  font-size: 4.2cqw;
+  font-weight: 700;
+}
+
+.rsvp-button {
+  top: 55.8cqw;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(12.5rem, 44vw, 14rem);
+  height: clamp(3.45rem, 12vw, 4rem);
+  padding: 0;
+  border: 0;
+  background: url("img/logosboda/13.svg") center / 100% auto no-repeat;
+  color: #4a4036;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(1.05rem, 4vw, 1.2rem);
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.photo-carousel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+.carousel-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  line-height: 0;
+  touch-action: pan-y;
+}
+
+.carousel-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: filter 220ms ease, opacity 220ms ease;
+}
+
+.carousel-image-monochrome {
+  filter: grayscale(100%);
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.75rem, 10vw, 3.25rem);
+  height: clamp(2.75rem, 10vw, 3.25rem);
+  padding: 0 0 0.18em;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(24, 24, 24, 0.58);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(2.2rem, 8vw, 2.7rem);
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 2px;
+}
+
+.carousel-arrow-previous {
+  left: 3.5%;
+}
+
+.carousel-arrow-next {
+  right: 3.5%;
+}
+
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.2rem;
+  gap: clamp(0.8rem, 3.2vw, 1rem);
+}
+
+.carousel-dot {
+  width: clamp(0.7rem, 2.8vw, 0.85rem);
+  height: clamp(0.7rem, 2.8vw, 0.85rem);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(62, 58, 54, 0.22);
+  cursor: pointer;
+  outline: none;
+  transition: width 180ms ease, height 180ms ease, background-color 180ms ease;
+}
+
+.carousel-dot:focus-visible {
+  outline: 2px solid rgba(23, 19, 15, 0.6);
+  outline-offset: 2px;
+}
+
+.carousel-dot-active {
+  width: clamp(1rem, 4vw, 1.18rem);
+  height: clamp(1rem, 4vw, 1.18rem);
+  background: #050505;
+}
+
+.invitation-closing {
+  margin: 1.75rem 0 4rem;
+  color: #302a25;
+  font-family: "Great Vibes", "Brush Script MT", cursive;
+  font-size: clamp(2.45rem, 10.5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  filter: blur(2px);
+  transform: translateY(1.15rem);
+  transition:
+    opacity 1800ms ease,
+    filter 1800ms ease,
+    transform 1800ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+.scroll-reveal.scroll-reveal-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+.music-toggle {
+  position: fixed;
+  bottom: 0.8rem;
+  left: max(0.8rem, calc(50% - 14.2rem));
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(24, 24, 24, 0.58);
+  color: rgba(255, 255, 255, 0.78);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+}
+
+.music-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 2px;
+}
+
+.music-toggle-paused {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.music-toggle-paused::after {
+  content: "";
+  position: absolute;
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.72);
+  transform: rotate(-45deg);
+}
+
+/* Escala proporcional basada en el lienzo original de 480 px. */
+.invitation-screen {
+  container-type: inline-size;
+}
+
+.video-section {
+  min-height: 0;
+}
+
+.video-frame {
+  height: auto;
+  aspect-ratio: 5 / 4;
+}
+
+.names-artwork {
+  transform: translateY(3.333cqw);
+}
+
+.wedding-message {
+  min-height: 115cqw;
+  padding: 15cqw 4.167cqw 16.667cqw;
+}
+
+.wedding-message h2 {
+  margin-bottom: 8.667cqw;
+  font-size: 12.167cqw;
+}
+
+.wedding-intro,
+.verse-reference,
+.wedding-message blockquote {
+  font-size: 4.667cqw;
+}
+
+.wedding-intro {
+  max-width: 90cqw;
+}
+
+.verse-reference {
+  margin: 7cqw 0 6cqw;
+}
+
+.wedding-message blockquote {
+  max-width: 83.333cqw;
+}
+
+.parents-section {
+  padding: 13.333cqw 3.667cqw;
+}
+
+.parents-intro {
+  margin-bottom: 11.333cqw;
+  font-size: 4.667cqw;
+}
+
+.parents-group + .parents-group {
+  margin-top: 10.667cqw;
+}
+
+.parents-group h2 {
+  margin-bottom: 7.333cqw;
+  font-size: 9.92cqw;
+}
+
+.parents-group p {
+  margin: 0.833cqw 0;
+  font-size: 6.25cqw;
+}
+
+.countdown-content {
+  padding: 3.333cqw 2.167cqw;
+}
+
+.countdown-content h2 {
+  margin-bottom: 10cqw;
+  font-size: 7.5cqw;
+}
+
+.countdown {
+  max-width: 90cqw;
+}
+
+.countdown-number,
+.countdown-colon {
+  font-size: 11.5cqw;
+}
+
+.countdown-label {
+  margin-top: 3.833cqw;
+  font-size: 3.167cqw;
+}
+
+.save-date {
+  --section-spacing: 20cqw;
+  min-height: 0;
+  padding-right: 2.667cqw;
+  padding-left: 2.667cqw;
+}
+
+.save-date h2 {
+  margin-bottom: 14cqw;
+  font-size: 9.92cqw;
+}
+
+.save-date-details {
+  max-width: 93.333cqw;
+}
+
+.save-date-details p {
+  min-height: 21cqw;
+  font-size: 4.75cqw;
+}
+
+.save-date-details .save-date-day {
+  font-size: 13.983cqw;
+}
+
+.save-date-rings {
+  width: 34.583cqw;
+  margin-top: 3.333cqw;
+}
+
+.marriage-counsel-image,
+.reception-image {
+  width: 36.267cqw;
+}
+
+.marriage-counsel-image {
+  margin-top: 6.667cqw;
+}
+
+.marriage-counsel h3,
+.reception h3 {
+  margin-top: 2.5cqw;
+  font-size: 9.92cqw;
+}
+
+.marriage-counsel p,
+.reception p {
+  font-size: 3.5cqw;
+}
+
+.marriage-counsel .marriage-counsel-time,
+.reception .reception-time {
+  margin-top: 9cqw;
+}
+
+.marriage-counsel-address,
+.reception-address {
+  margin-top: 6.333cqw;
+}
+
+.map-button {
+  width: 46.667cqw;
+  height: 12.708cqw;
+  margin-top: 3.333cqw;
+  font-size: 4cqw;
+}
+
+.itinerary-section {
+  margin-top: 20cqw;
+}
+
+.dress-code-section {
+  margin-top: 12.083cqw;
+}
+
+.rsvp-button {
+  width: 46.667cqw;
+  height: 12.708cqw;
+  font-size: 4cqw;
+}
+
+.photo-carousel {
+  margin-top: 8.333cqw;
+}
+
+.carousel-arrow {
+  width: 10.833cqw;
+  height: 10.833cqw;
+  font-size: 9cqw;
+}
+
+.carousel-indicators {
+  min-height: 14cqw;
+  gap: 3.333cqw;
+}
+
+.carousel-dot {
+  width: 2.833cqw;
+  height: 2.833cqw;
+}
+
+.carousel-dot-active {
+  width: 3.933cqw;
+  height: 3.933cqw;
+}
+
+.invitation-closing {
+  margin: 5.833cqw 0 13.333cqw;
+  font-size: 10.667cqw;
+}
+
+.scroll-reveal {
+  transform: translateY(3.833cqw);
+}
+
+.scroll-reveal.scroll-reveal-visible {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    transform: none;
+  }
+}
