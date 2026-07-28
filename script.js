@@ -30,9 +30,12 @@ const musicToggle = document.getElementById("music-toggle");
 let musicHasStarted = false;
 
 function removeMusicStartListeners() {
-  document.removeEventListener("pointerdown", startBackgroundMusic);
-  document.removeEventListener("touchstart", startBackgroundMusic);
-  document.removeEventListener("keydown", startBackgroundMusic);
+  document.removeEventListener("pointerdown", startBackgroundMusic, true);
+  document.removeEventListener("pointerup", startBackgroundMusic, true);
+  document.removeEventListener("touchstart", startBackgroundMusic, true);
+  document.removeEventListener("touchend", startBackgroundMusic, true);
+  document.removeEventListener("click", startBackgroundMusic, true);
+  document.removeEventListener("keydown", startBackgroundMusic, true);
 }
 
 function updateMusicToggle() {
@@ -66,13 +69,15 @@ function startBackgroundMusic(event) {
   }
 }
 
-document.addEventListener("pointerdown", startBackgroundMusic, {
-  passive: true
-});
-document.addEventListener("touchstart", startBackgroundMusic, {
-  passive: true
-});
-document.addEventListener("keydown", startBackgroundMusic);
+["pointerdown", "pointerup", "touchstart", "touchend", "click"].forEach(
+  (eventName) => {
+    document.addEventListener(eventName, startBackgroundMusic, {
+      capture: true,
+      passive: true
+    });
+  }
+);
+document.addEventListener("keydown", startBackgroundMusic, true);
 
 startBackgroundMusic();
 
