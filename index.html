@@ -13,8 +13,20 @@
   <main id="app" class="invitation-screen" aria-label="Invitacion de Jadhira y Carlos">
     <section class="video-section" aria-label="Video de inicio">
       <div class="video-frame">
-        <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
-          <source src="video/videoboda.mp4" type="video/mp4">
+        <video
+          id="opening-video"
+          class="background-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          webkit-playsinline
+          preload="auto"
+          poster="img/carrusel/1.jpg"
+          disablepictureinpicture
+          aria-hidden="true"
+        >
+          <source src="video/videoboda.mp4?v=2" type="video/mp4">
         </video>
       </div>
 
@@ -259,18 +271,18 @@
 
   <button
     id="music-toggle"
-    class="music-toggle music-toggle-paused"
+    class="music-toggle"
     type="button"
-    aria-label="Reproducir música"
-    aria-pressed="false"
+    aria-label="Pausar música"
+    aria-pressed="true"
   >
     <span aria-hidden="true">♫</span>
   </button>
 
   <audio id="background-music" autoplay loop preload="auto">
-    <source src="musica/musicafondo.mpeg" type="audio/mpeg">
+    <source src="musica/musicafondo.mpeg?v=2" type="audio/mpeg">
   </audio>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>

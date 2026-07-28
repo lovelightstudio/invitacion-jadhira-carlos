@@ -27,6 +27,7 @@ setInterval(updateCountdown, 1000);
 
 const backgroundMusic = document.getElementById("background-music");
 const musicToggle = document.getElementById("music-toggle");
+let musicHasStarted = false;
 
 function removeMusicStartListeners() {
   document.removeEventListener("pointerdown", startBackgroundMusic);
@@ -35,7 +36,7 @@ function removeMusicStartListeners() {
 }
 
 function updateMusicToggle() {
-  const isPlaying = !backgroundMusic.paused;
+  const isPlaying = !backgroundMusic.paused || !musicHasStarted;
   musicToggle.classList.toggle("music-toggle-paused", !isPlaying);
   musicToggle.setAttribute("aria-pressed", String(isPlaying));
   musicToggle.setAttribute(
@@ -54,12 +55,13 @@ function startBackgroundMusic(event) {
   if (playback) {
     playback
       .then(() => {
+        musicHasStarted = true;
         removeMusicStartListeners();
         updateMusicToggle();
       })
       .catch(() => {
-        // El navegador espera la primera interacción del visitante.
-        updateMusicToggle();
+        // iOS y Android pueden exigir el primer toque del visitante.
+        // El control permanece activo y ese toque inicia la música.
       });
   }
 }
@@ -76,17 +78,73 @@ startBackgroundMusic();
 
 musicToggle.addEventListener("click", () => {
   if (backgroundMusic.paused) {
-    backgroundMusic.play().catch(() => {
-      updateMusicToggle();
-    });
+    backgroundMusic
+      .play()
+      .then(() => {
+        musicHasStarted = true;
+        removeMusicStartListeners();
+        updateMusicToggle();
+      })
+      .catch(updateMusicToggle);
   } else {
     backgroundMusic.pause();
   }
 });
 
-backgroundMusic.addEventListener("play", updateMusicToggle);
+backgroundMusic.addEventListener("play", () => {
+  musicHasStarted = true;
+  updateMusicToggle();
+});
 backgroundMusic.addEventListener("pause", updateMusicToggle);
 updateMusicToggle();
+
+const openingVideo = document.getElementById("opening-video");
+let videoRetryCount = 0;
+let videoRetryTimer;
+
+function playOpeningVideo() {
+  if (!openingVideo) {
+    return;
+  }
+
+  openingVideo.muted = true;
+  openingVideo.defaultMuted = true;
+  openingVideo.playsInline = true;
+  openingVideo.play().catch(() => {
+    // El póster permanece visible mientras el navegador termina de cargar.
+  });
+}
+
+function retryOpeningVideo() {
+  if (!openingVideo || videoRetryCount >= 3) {
+    return;
+  }
+
+  window.clearTimeout(videoRetryTimer);
+  videoRetryCount += 1;
+  videoRetryTimer = window.setTimeout(() => {
+    openingVideo.load();
+    playOpeningVideo();
+  }, videoRetryCount * 1200);
+}
+
+openingVideo?.addEventListener("loadeddata", () => {
+  videoRetryCount = 0;
+  playOpeningVideo();
+});
+openingVideo?.addEventListener("canplay", playOpeningVideo);
+openingVideo?.addEventListener("stalled", retryOpeningVideo);
+openingVideo?.addEventListener("error", retryOpeningVideo);
+openingVideo?.addEventListener("ended", playOpeningVideo);
+
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) {
+    playOpeningVideo();
+  }
+});
+
+window.addEventListener("pageshow", playOpeningVideo);
+playOpeningVideo();
 
 const carouselImage = document.getElementById("carousel-image");
 const carouselFrame = document.querySelector(".carousel-frame");
