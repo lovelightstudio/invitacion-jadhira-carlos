@@ -705,6 +705,14 @@ body {
   font-weight: 700;
 }
 
+.rsvp-day {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  font-style: normal;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
 .rsvp-button {
   top: 55.8cqw;
   left: 50%;
@@ -747,11 +755,11 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  transition: filter 220ms ease, opacity 220ms ease;
+  transition: opacity 220ms ease;
 }
 
 .carousel-image-monochrome {
-  filter: grayscale(100%);
+  filter: grayscale(100%) contrast(108%);
 }
 
 .carousel-arrow {

@@ -28,6 +28,31 @@ setInterval(updateCountdown, 1000);
 const backgroundMusic = document.getElementById("background-music");
 const musicToggle = document.getElementById("music-toggle");
 let musicHasStarted = false;
+let musicAudioContext;
+let musicGain;
+
+backgroundMusic.volume = 1;
+
+function boostBackgroundMusic() {
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+  if (!AudioContextClass) {
+    return;
+  }
+
+  if (!musicAudioContext) {
+    musicAudioContext = new AudioContextClass();
+    const musicSource = musicAudioContext.createMediaElementSource(backgroundMusic);
+    musicGain = musicAudioContext.createGain();
+    musicGain.gain.value = 1.8;
+    musicSource.connect(musicGain);
+    musicGain.connect(musicAudioContext.destination);
+  }
+
+  if (musicAudioContext.state === "suspended") {
+    musicAudioContext.resume().catch(() => {});
+  }
+}
 
 function removeMusicStartListeners() {
   document.removeEventListener("pointerdown", startBackgroundMusic, true);
@@ -53,6 +78,7 @@ function startBackgroundMusic(event) {
     return;
   }
 
+  boostBackgroundMusic();
   const playback = backgroundMusic.play();
 
   if (playback) {
@@ -83,6 +109,7 @@ startBackgroundMusic();
 
 musicToggle.addEventListener("click", () => {
   if (backgroundMusic.paused) {
+    boostBackgroundMusic();
     backgroundMusic
       .play()
       .then(() => {
@@ -165,6 +192,7 @@ const carouselPhotos = [
   "img/carrusel/6.jpg",
   "img/carrusel/7.jpg"
 ];
+const monochromeCarouselSlides = new Set([0, 2, 4, 6]);
 let currentCarouselSlide = 0;
 let carouselTouchStartX = 0;
 let carouselTouchStartY = 0;
@@ -178,7 +206,7 @@ function showCarouselSlide(index) {
     `Fotografía ${currentCarouselSlide + 1} de Jadhira y Carlos`;
   carouselImage.classList.toggle(
     "carousel-image-monochrome",
-    currentCarouselSlide % 2 === 0
+    monochromeCarouselSlides.has(currentCarouselSlide)
   );
 
   carouselDots.forEach((dot, dotIndex) => {
